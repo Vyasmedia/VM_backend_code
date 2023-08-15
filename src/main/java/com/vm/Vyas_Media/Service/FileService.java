@@ -11,4 +11,5 @@ public interface FileService {
 	FileModel uploadvideo(String path, MultipartFile file) throws IOException;
 
 	InputStream getvideofile(String path, String fileName, int id) throws FileNotFoundException;
+
 }
