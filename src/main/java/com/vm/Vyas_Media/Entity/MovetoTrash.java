@@ -1,5 +1,6 @@
 package com.vm.Vyas_Media.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -27,41 +28,20 @@ public class MovetoTrash {
 
     @Id
     @GeneratedValue
-    private Long id;
-    private String firstname;
-    private String lastname;
-    private String contact;
+	private int id;  
+	 
+	private String headline; 
+  
+	private String subHeadline;  
+
+	private String description;  
+ 
+	private String hashtag;
+	
     private Boolean deleted;
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getFirstname() {
-		return firstname;
-	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-	public String getLastname() {
-		return lastname;
-	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-	public String getContact() {
-		return contact;
-	}
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
-	public Boolean getDeleted() {
-		return deleted;
-	}
+	
 	public void setDeleted(Boolean deleted) {
 		this.deleted = deleted;
 	}
-    
-    
+   
 }

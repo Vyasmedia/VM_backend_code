@@ -7,6 +7,7 @@ import org.hibernate.Filter;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.vm.Vyas_Media.Entity.MovetoTrash;
 import com.vm.Vyas_Media.Repository.MovetoTrashRepository;
 
@@ -33,15 +34,15 @@ public class MovetoTrashService {
         return userRepository.save(user);
     }
 
-    public MovetoTrash findByContact(String contact) {
-        return userRepository.findByContact(contact);
+    public MovetoTrash findByHeadline(String headline) {
+        return userRepository.findByHeadline(headline);
     }
 
-    public Optional<MovetoTrash> findById(Long id) {
+    public Optional<MovetoTrash> findById(Integer id) {
         return userRepository.findById(id);
     }
 
-    public void delete(Long id) {
+    public void delete(Integer id) {
         userRepository.deleteById(id);
     }
 }

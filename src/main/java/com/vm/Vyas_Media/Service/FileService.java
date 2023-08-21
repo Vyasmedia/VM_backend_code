@@ -3,13 +3,12 @@ package com.vm.Vyas_Media.Service;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+
 import org.springframework.web.multipart.MultipartFile;
-import com.vm.Vyas_Media.Entity.FileModel;
 
 public interface FileService {
+	String uploadImage(String path, MultipartFile file) throws IOException;
 
-	FileModel uploadvideo(String path, MultipartFile file) throws IOException;
-
-	InputStream getvideofile(String path, String fileName, int id) throws FileNotFoundException;
-
+	InputStream getResource(String path, String fileName) throws FileNotFoundException;
+	
 }

@@ -2,11 +2,11 @@ package com.vm.Vyas_Media.Service;
 
 import java.util.List;
 
-import com.vm.Vyas_Media.Entity.Category;
+import com.vm.Vyas_Media.Entity.CategorySearch;
 
-public interface CategoryService {
+public interface CategoryServiceSearch {
 
-	List<Category> searchCategories(String query);
+	List<CategorySearch> searchCategories(String query);
 
-	Category createCategory(Category category);
+	CategorySearch createCategory(CategorySearch category);
 }

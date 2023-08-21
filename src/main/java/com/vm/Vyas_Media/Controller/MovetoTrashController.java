@@ -5,10 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 import com.vm.Vyas_Media.Entity.MovetoTrash;
 import com.vm.Vyas_Media.Service.MovetoTrashService;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -50,20 +48,20 @@ public class MovetoTrashController {
 	        return new ResponseEntity<>(users, HttpStatus.OK);
 	    }
 
-	    @GetMapping(value = "/contact")
-	    public @ResponseBody MovetoTrash findUserByContact(@RequestParam(value = "contact") String contact) {
-	    	MovetoTrash user = userService.findByContact(contact);
+	    @GetMapping(value = "/headline")
+	    public @ResponseBody MovetoTrash findUserByContact(@RequestParam(value = "headline") String headline) {
+	    	MovetoTrash user = userService.findByHeadline(headline);
 	        return user;
 	    }
 
 	    @GetMapping(value = "/user/{id}")
-	    public @ResponseBody Optional<MovetoTrash>  findUserById(@PathVariable Long id) {
+	    public @ResponseBody Optional<MovetoTrash>  findUserById(@PathVariable Integer id) {
 	        Optional<MovetoTrash> user = userService.findById(id); 
 	        return user;
 	    }
 
 	    @DeleteMapping("/delete/{id}")
-	    public void deleteUser(@PathVariable Long id) {
+	    public void deleteUser(@PathVariable Integer id) {
 	        userService.delete(id);
 	    }
 	}

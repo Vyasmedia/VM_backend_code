@@ -16,38 +16,33 @@ import com.vm.Vyas_Media.Service.CareerService;
 @RestController
 public class CareerController {
 
-@Autowired  
-CareerService careerService;  
-   
-@GetMapping("/career")  
-private List<Career> getAllCareer()   
-{  
-return careerService.getAllCareer();  
-}  
-  
-@GetMapping("/career/{id}")  
-private Career getCareers(@PathVariable("id") int id)   
-{  
-return careerService.getCareerById(id);  
-}  
-  
-@DeleteMapping("/career/{id}")  
-private void deleteCareer(@PathVariable("id") int id)   
-{  
-	careerService.delete(id);  
-}  
-  
-@PostMapping("/careers")  
-private int saveCareer(@RequestBody Career career)   
-{  
-	careerService.saveOrUpdate(career);  
-return career.getId();  
-}  
-   
-@PutMapping("/careers")  
-private Career update(@RequestBody Career career)   
-{  
-	careerService.saveOrUpdate(career);  
-return career;  
-}
+	@Autowired
+	CareerService careerService;
+
+	@GetMapping("/career")
+	private List<Career> getAllCareer() {
+		return careerService.getAllCareer();
+	}
+
+	@GetMapping("/career/{id}")
+	private Career getCareers(@PathVariable("id") int id) {
+		return careerService.getCareerById(id);
+	}
+
+	@DeleteMapping("/career/{id}")
+	private void deleteCareer(@PathVariable("id") int id) {
+		careerService.delete(id);
+	}
+
+	@PostMapping("/careers")
+	private int saveCareer(@RequestBody Career career) {
+		careerService.saveOrUpdate(career);
+		return career.getId();
+	}
+
+	@PutMapping("/careers")
+	private Career update(@RequestBody Career career) {
+		careerService.saveOrUpdate(career);
+		return career;
+	}
 }

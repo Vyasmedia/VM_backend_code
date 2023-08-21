@@ -5,8 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Entity;   
 import javax.persistence.Table;  
   
-@Entity    
-@Table  
+  
 public class Journalist {
 	
 	@Id  

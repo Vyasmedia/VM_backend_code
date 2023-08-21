@@ -13,6 +13,12 @@ public class ResourceNotFoundException extends RuntimeException {
 
 	private boolean status;
 	private String message;
+	
+	String resourceName;
+	String fieldName;
+	long fieldValue;
+	
+	
 	public boolean isStatus() {
 		return status;
 	}
@@ -31,6 +37,15 @@ public class ResourceNotFoundException extends RuntimeException {
 		super(message, cause, enableSuppression, writableStackTrace);
 		
 	}
+	
+	public ResourceNotFoundException(String resourceName, String fieldName, long fieldValue) {
+		super(String.format("%s not found with %s : %s", resourceName, fieldName, fieldValue));
+		this.resourceName = resourceName;
+		this.fieldName = fieldName;
+		this.fieldValue = fieldValue;
+	}
+	
+	
 	public ResourceNotFoundException(String message, Throwable cause) {
 		super(message, cause);
 		

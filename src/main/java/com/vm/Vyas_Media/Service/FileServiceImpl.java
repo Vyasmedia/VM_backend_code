@@ -8,39 +8,45 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.UUID;
-
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.vm.Vyas_Media.Entity.FileModel;
-
 @Service
-public class FileServiceImpl implements FileService{
+public class FileServiceImpl implements FileService {
 
 	@Override
-	public FileModel uploadvideo(String path, MultipartFile file) throws IOException {
-		FileModel fileModel= new FileModel();
-		String filename=file.getOriginalFilename();
-		
-		String randomId = UUID.randomUUID().toString();
-		String finalname=randomId.concat(filename).substring(filename.indexOf("."));
-		
-		String filepath=path + File.separator+finalname;
-		
+	public String uploadImage(String path, MultipartFile file) throws IOException {
+
+		// File name
+		String name = file.getOriginalFilename();
+		// abc.png
+
+		// random name generate file
+		String randomID = UUID.randomUUID().toString();
+		String fileName1 = randomID.concat(name.substring(name.lastIndexOf(".")));
+
+		// Full path
+		String filePath = path + File.separator + fileName1;
+
+		// create folder if not created
 		File f = new File(path);
-		if(!f.exists()) {
+		if (!f.exists()) {
 			f.mkdir();
 		}
-		Files.copy(file.getInputStream(), Paths.get(filepath));
-		fileModel.setVideoFileName(finalname);
-		return fileModel;
+
+		// file copy
+
+		Files.copy(file.getInputStream(), Paths.get(filePath));
+
+		return fileName1;
 	}
 
 	@Override
-	public InputStream getvideofile(String path, String fileName, int id) throws FileNotFoundException {
-	String fullpath=path + File.separator+fileName;
-	InputStream inputstream= new FileInputStream(fullpath);
-	return inputstream;
+	public InputStream getResource(String path, String fileName) throws FileNotFoundException {
+		String fullPath = path + File.separator + fileName;
+		InputStream is = new FileInputStream(fullPath);
+		// db logic to return inputstream
+		return is;
 	}
-
+	
 }
