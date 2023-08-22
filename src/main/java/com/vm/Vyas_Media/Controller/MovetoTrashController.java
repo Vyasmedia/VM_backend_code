@@ -12,7 +12,7 @@ import java.util.Optional;
 
 
 @Controller
-@RequestMapping("/movetotrash")
+@RequestMapping("/cms")
 public class MovetoTrashController {
 
 	    @Autowired MovetoTrashService userService;

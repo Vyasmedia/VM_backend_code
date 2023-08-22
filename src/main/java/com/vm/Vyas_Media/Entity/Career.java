@@ -1,11 +1,14 @@
 package com.vm.Vyas_Media.Entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity    
 @Table  
@@ -19,9 +22,11 @@ public class Career {
 	private String email;  
 	@Column  
 	private long contactno;
-	 @CreationTimestamp
-	    @Column(updatable = false)
-    private Date birthDay; 
+//	 @CreationTimestamp
+//	    @Column(updatable = false)
+//    private Date birthDay; 
+	   @JsonFormat(pattern="yyyy-MM-dd")
+	    private LocalDate birthDay;
 	@Column  
 	private String address;  
 	@Column  
@@ -49,10 +54,10 @@ public class Career {
 	public void setContactno(long contactno) {
 		this.contactno = contactno;
 	}
-	public Date getBirthDay() {
+	public LocalDate getBirthDay() {
 		return birthDay;
 	}
-	public void setBirthDay(Date birthDay) {
+	public void setBirthDay(LocalDate birthDay) {
 		this.birthDay = birthDay;
 	}
 	public String getAddress() {
@@ -91,7 +96,7 @@ public class Career {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Career(int id, String fullname, String email, long contactno, Date birthDay, String address,
+	public Career(int id, String fullname, String email, long contactno, LocalDate birthDay, String address,
 			String education, String role, int experience) {
 		super();
 		this.id = id;

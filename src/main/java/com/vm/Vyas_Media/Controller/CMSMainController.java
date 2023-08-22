@@ -37,6 +37,7 @@ import com.vm.Vyas_Media.Repository.CMSMainRepository;
 import com.vm.Vyas_Media.Service.CMSMainService;
 
 @RestController
+@RequestMapping("/cms")
 public class CMSMainController {
 
 	@Autowired
